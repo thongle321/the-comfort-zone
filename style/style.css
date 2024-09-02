@@ -1,210 +1,144 @@
-/* atma-latin-500-normal */
-@font-face {
-  font-family: "Atma";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src:
-    url(https://cdn.jsdelivr.net/fontsource/fonts/atma@latest/latin-500-normal.woff2) format("woff2"),
-    url(https://cdn.jsdelivr.net/fontsource/fonts/atma@latest/latin-500-normal.woff) format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* lobster-two-latin-400-normal */
-@font-face {
-  font-family: "Lobster Two";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src:
-    url(https://cdn.jsdelivr.net/fontsource/fonts/lobster-two@latest/latin-400-normal.woff2) format("woff2"),
-    url(https://cdn.jsdelivr.net/fontsource/fonts/lobster-two@latest/latin-400-normal.woff) format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* pixelify-sans-latin-700-normal */
-@font-face {
-  font-family: "Pixelify Sans";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src:
-    url(https://cdn.jsdelivr.net/fontsource/fonts/pixelify-sans@latest/latin-700-normal.woff2) format("woff2"),
-    url(https://cdn.jsdelivr.net/fontsource/fonts/pixelify-sans@latest/latin-700-normal.woff) format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 :root {
-  --nav-title: #e1d7b7;
-  --nav-foreground: #e4b0a5;
-  --nav-border: #ffbe98;
-  --background: #7c93c3;
-  --text-color: #f2e8c6;
-  --text-size: 1.05rem;
-}
-
-html {
-  scrollbar-color: #c58991 #5b6b9c;
+    --nav-title: #e1d7b7;
+    --nav-foreground: #e4b0a5;
+    --nav-border: #ffbe98;
+    --background: #7c93c3;
+    --text-color: #f2e8c6;
+    --text-size: 1.15rem;
+    --text-padding: 0.5rem;
 }
 
 body {
-  background-image: url(../images/sky.png), url(../images/space.gif);
-  background-repeat: no-repeat;
-  background-size: cover cover;
-  background-position: center;
-  background-attachment: fixed;
-  font-family: "Atma";
-  font-size: var(--text-size);
+    background-image: url(../images/sky.png), url(../images/space.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover, auto;
+    font-family: "Atma";
+    font-size: var(--text-size);
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(100% - 190px);
-  border-radius: 20px;
-  border: 3px solid #7c93c3;
-  padding: 10px;
-  margin: 0 auto;
+p {
+    color: var(--text-color);
 }
 
-header {
-  margin-bottom: 1rem;
-  align-self: stretch;
+b,
+strong {
+    font-weight: 600;
 }
 
-.marquee {
-  font-family: "Pixelify Sans";
-  font-size: 2rem;
-  color: #585393e6;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  text-shadow: #867d7de6 2px 0px 0px;
-  animation: flick 5s infinite alternate;
+i {
+    font-style: italic;
 }
 
-.marquee h1 {
-  display: inline-blockl;
+.box {
+    border: 1.5px solid var(--nav-border);
+    border-radius: 0.63rem;
+    color: var(--nav-title);
+    background-color: var(--background);
 }
 
-@keyframes flick {
-  40% {
-    opacity: 1;
-  }
-
-  42% {
-    opacity: 0.8;
-  }
-
-  43% {
-    opacity: 1;
-  }
-
-  45% {
-    opacity: 0.3;
-  }
-
-  46% {
-    opacity: 1;
-  }
+.wrapper {
+    position: relative;
+    display: grid;
+    max-width: 1100px;
+    padding: 20px 75px 20px 20px;
+    margin: auto;
+    grid-template-areas:
+        "header header header"
+        "navbar main update"
+        "navbar status currently"
+        "footer footer footer";
+    grid-template-columns: 20% 51% 29%;
+    grid-template-rows: 70px 390px 300px 70px;
+    gap: 30px;
 }
 
-.content {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-  align-items: self-start;
+.header {
+    overflow: hidden;
+    grid-area: header;
 }
 
-.navbar {
-  color: var(--nav-title);
-  background-color: var(--background);
-  border: 1.5px solid var(--nav-border);
-  border-radius: 0.63rem;
-  padding: 0.2rem;
-  overflow: auto;
+.title {
+    align-items: center;
+    color: #585393e6;
+    text-shadow: #867d7de6 2px 0px 0px;
+    animation: flick 5s infinite alternate;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    letter-spacing: 0.5rem;
+    font-family: "Pixelify Sans";
+    font-size: 2rem;
 }
 
-.navbar h3 {
-  font-family: "Lobster Two";
-  color: whitesmoke;
-  margin: 0.2rem;
+#navbar {
+    overflow: auto;
+    padding: 0.2rem;
+    grid-area: navbar;
 }
 
-.navbar a {
-  display: flex;
-  flex-direction: column;
-  color: var(--nav-foreground);
-  text-decoration: none;
-  margin: 0.14rem 0.5rem;
+#navbar a {
+    display: block;
+    margin-left: 1.2rem;
+    color: var(--nav-foreground);
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.main {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  align-items: self-start;
+#navbar h3 {
+    margin: 0.4rem;
+    color: whitesmoke;
+    font-family: "Lobster Two";
+    font-size: 1.5rem;
 }
 
-.intro {
-  background-color: var(--background);
-  border: 1.5px solid var(--nav-border);
-  border-radius: 0.63rem;
-  padding: 0.2rem;
-  overflow-y: auto;
-  height: 300px;
-  width: auto;
-  align-items: self-start;
+#intro {
+    overflow: auto;
+    padding: var(--text-padding);
+    background-color: var(--background);
+    grid-area: main;
+}
+
+#intro p {
+    margin: 1rem 0;
 }
 
 .ani-ase {
-  background-size: contain;
-  width: 30%;
-  float: right;
-  vertical-align: top;
+    float: right;
+    width: 30%;
+    margin-left: 0.2rem;
 }
 
-.intro p {
-  margin-right: 3rem;
-  text-align: left;
-  margin-bottom: 1rem;
+#update {
+    grid-area: update;
 }
 
-.update {
-  background-color: var(--background);
-  border: 1.5px solid var(--nav-border);
-  border-radius: 0.63rem;
-  padding: 0.2rem;
-  overflow: hidden;
-  overflow-y: auto;
-  width: auto;
+#update h2 {
+    margin-right: 1rem;
+    color: whitesmoke;
+    text-align: center;
+    font-family: "Lobster Two";
+    font-size: 1.5rem;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1rem;
-  background-color: var(--background);
-  border: 1.5px solid var(--nav-border);
-  border-radius: 0.63rem;
-  align-self: stretch;
+#update h3 {
+    padding: var(--text-padding);
+    color: var(--nav-foreground);
+    font-size: 1.3rem;
 }
 
-footer p {
-  color: var(--text-color);
-  text-align: center;
+#update p {
+    margin: 0 0 0 1rem;
 }
 
-footer a {
-  color: var(--nav-foreground);
+#status {
+    grid-area: status;
+}
+
+#currently {
+    grid-area: currently;
+}
+
+#footer {
+    grid-area: footer;
 }
